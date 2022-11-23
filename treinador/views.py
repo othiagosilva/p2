@@ -12,5 +12,8 @@ def sobre(request):
 def menu(request):
     return render(request, 'menu.html')
 
-def financa(request):
-    return render(request, 'financa.html')
+def cadastrarRenda(request):
+    return render(request, 'cadastrar_renda.html')
+
+def consultarRenda(request):
+    return render(request, 'consulta_renda.html')
