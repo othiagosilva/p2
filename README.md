@@ -1,5 +1,11 @@
 # 🔨 INSTALAÇÃO DA APLICAÇÃO PARA DESENVOLVIMENTO
 
+## PREREQUISITOS
+Ter instalado na máquina:
+• Python 
+• Django 2.2.6
+
+
 1. Realize a clonagem do repositório
 ```
 git clone https://github.com/othiagosilva/myTrainer.git
