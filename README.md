@@ -7,6 +7,8 @@ Ter instalado na máquina:
 
 • Django 2.2.6
 
+• PostgreSQL
+
 
 1. Realize a clonagem do repositório
 ```
@@ -19,6 +21,11 @@ python manage.py runserver
 ```
 
 Pronto, a aplicação estará rodando no endereço localhost:8000; basta acessá-lo para visualizá-la.
+
+Rodar o seguinte comando para ter as migrações do banco:
+```
+python manage.py migrate
+```
 
 # CRIAÇÃO DE URL
 Para criar URLs que redirecionam para as páginas necessárias, será necessário adicioná-la no arquivo 'urls.py' da pasta 'treinador'. <br><br>
