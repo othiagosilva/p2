@@ -12,6 +12,15 @@ def sobre(request):
 def menu(request):
     return render(request, 'menu.html')
 
+def cadastrarAluno(request):
+    return render(request, 'cadastrar_aluno.html')
+
+def consultarAluno(request):
+    return render(request, 'consultar_aluno.html')
+
+def consultarDados(request):
+    return render(request, 'consultar_dados.html')
+
 def cadastrarRenda(request):
     return render(request, 'cadastrar_renda.html')
 

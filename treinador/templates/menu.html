@@ -6,12 +6,8 @@
     
     <main>
         <ul>
-            <a href=""><li>Cadastrar Alunos</li></a>
-            <a href=""><li>Consultar Alunos</li></a>
-            <a href=""><li>Agendar Aula</li></a>
-            <a href=""><li>Consultar Aulas</li></a>
-            <a href=""><li>Cadastrar Treino</li></a>
-            <a href=""><li>Consultar Treinos</li></a>
+            <a href="{% url 'cadastrar_aluno' %}"><li>Cadastrar Alunos</li></a>
+            <a href="{% url 'consultar_aluno'%}"><li>Consultar Alunos</li></a>
             <a href="{% url 'cadastrar_renda' %}"><li>Cadastrar Renda</li></a>
             <a href="{% url 'consultar_renda' %}"><li>Consultar Renda</li></a>
         </ul>
