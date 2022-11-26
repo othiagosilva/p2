@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import *
 
 def index(request):
     return render(request, 'index.html')
@@ -16,7 +17,13 @@ def cadastrarAluno(request):
     return render(request, 'cadastrar_aluno.html')
 
 def consultarAluno(request):
-    return render(request, 'consultar_aluno.html')
+    alunos = Aluno.objects.all()
+
+    dados = {
+        'alunos' : alunos
+    }
+
+    return render(request, 'consultar_aluno.html', dados)
 
 def consultarDados(request):
     return render(request, 'consultar_dados.html')
@@ -25,4 +32,10 @@ def cadastrarRenda(request):
     return render(request, 'cadastrar_renda.html')
 
 def consultarRenda(request):
-    return render(request, 'consulta_renda.html')
+    rendas = Renda.objects.all()
+
+    dados = {
+     'rendas' : rendas
+    }
+
+    return render(request, 'consulta_renda.html', dados)

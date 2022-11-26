@@ -15,20 +15,19 @@
                    <td></td>
                 </tr>
             </thead>
-            <!-- {% for chave, nome, valor in renda.items %} -->
+            {% if alunos %}
+            {% for aluno in alunos %}
             <tbody>
                 <tr>
-                    <td>teste</td>
-                    <td>teste</td>
-                    <!-- <td> {{nome_aluno}} </td>
-                    <td>{{codigo}}</td> -->
+                    <td> {{aluno.nome}} </td>
+                    <td>{{aluno.codigo}}</td>
+                    <button><a href="{% url 'consultar_dados' %}">consultar</a></button>
                     <td><button><a href="">alterar</a></button></td>
-                    <td></td>
                     <td><button><a href="">excluir</a></button></td>
                 </tr>
             </tbody>
-            <!-- {% endfor %} -->
+            {% endfor %}
+            {% endif %}
         </table>
-        <button><a href="{% url 'consultar_dados' %}">consultar</a></button>
     </main>
 {% endblock %}

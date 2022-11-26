@@ -14,16 +14,19 @@
                    <td></td>
                 </tr>
             </thead>
-            {% for chave, nome, valor in renda.items %}
+            {% if rendas %}
+            {% for renda in rendas %}
             <tbody>
                 <tr>
-                    <td>{{nome_renda}}</td>
-                    <td>{{valor}}</td>
+                    <td>{{renda.nome_renda}}</td>
+                    <td>{{renda.valor_renda}}</td>
                     <td>editar</td>
                     <td>excluir</td>
                 </tr>
             </tbody>
             {% endfor %}
+            {% else %}
+            {% endif %}
         </table>
     </main>
 {% endblock %}

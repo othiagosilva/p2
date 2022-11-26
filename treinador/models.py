@@ -1,21 +1,24 @@
 from django.db import models
 
 class Usuario(models.Model):
-    email = models.CharField(max_length=100)
+    codigo = models.IntegerField(primary_key=True,default = 0)
+    email = models.EmailField()
     usuario = models.CharField(max_length=20)
     senha = models.CharField(max_length=200)
-    tipo_usuario = models.BooleanField()
+    treinador = models.BooleanField()
 
 class Renda(models.Model):
+    codigo = models.IntegerField(primary_key=True, default = 0)
     nome_renda = models.CharField(max_length=20)
     valor_renda = models.IntegerField()
 
 class Aluno(models.Model):
+    codigo = models.IntegerField(primary_key=True, default=0)
     nome = models.CharField(max_length=20)
     idade = models.CharField(max_length=20)
     peso = models.CharField(max_length=20)
     altura = models.CharField(max_length=20)
-    genero = models.CharField(max_length=20)
+    masculino = models.BooleanField(default=True)
     cintura = models.CharField(max_length=20)
     quadril = models.CharField(max_length=20)
     subescapular = models.CharField(max_length=20)
