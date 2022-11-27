@@ -3,9 +3,9 @@
 ## PREREQUISITOS
 Ter instalado na máquina:
 
-• Python 3.7.4
+• Python
 
-• Django 2.2.6
+• Django
 
 • PostgreSQL
 
