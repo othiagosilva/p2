@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import HttpResponse, render
 from .models import *
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
 from treinador.serializers import RendaSerializer
 from rest_framework.decorators import api_view
+from django.contrib.auth.models import User
 
 def index(request):
     return render(request, 'index.html')
@@ -18,16 +19,30 @@ def sobre(request):
 def menu(request):
     return render(request, 'menu.html')
 
-def cadastrarAluno(nome, idade, peso, altura, request):
+def cadastrarAluno(request, nome, idade, peso, altura):
     alunos = Aluno.objects
 
-    alunos.codigo = alunos.codigo + 1
-    alunos.nome = nome
-    alunos.idade = idade
-    alunos.peso = peso
-    alunos.altura = altura
+    if request.method == "GET":
+        return render(request, 'cadastrar_aluno.html')
+    else:
+        nome = request.POST.get('nome')
+        idade = request.POST.get('nome')
+        peso = request.POST.get('nome')
+        altura = request.POST.get('nome')
 
-    return render(request, 'cadastrar_aluno.html')
+        user = User.objects.filter(username=nome).first # trás todos os usuários que tiverem o mesmo nome
+
+        if user:
+            return HttpResponse('Já existe um usuário com esse nome')
+        
+        alunos.nome = nome
+        alunos.idade = idade
+        alunos.peso = peso
+        alunos.altura = altura
+        # user = User.objects.create_user(nome, idade, peso, altura)
+        alunos.save()
+
+        return HttpResponse('Usuário cadastrado com sucesso')
 
 def consultarAluno(request):
     alunos = Aluno.objects.all()
