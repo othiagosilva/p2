@@ -1,7 +1,7 @@
 from django.db import models
 
 class Usuario(models.Model):
-    codigo = models.IntegerField(primary_key=True,default = 0)
+    codigo = models.IntegerField(primary_key=True, default = 0)
     email = models.EmailField()
     usuario = models.CharField(max_length=20)
     senha = models.CharField(max_length=200)

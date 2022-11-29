@@ -18,7 +18,15 @@ def sobre(request):
 def menu(request):
     return render(request, 'menu.html')
 
-def cadastrarAluno(request):
+def cadastrarAluno(nome, idade, peso, altura, request):
+    alunos = Aluno.objects
+
+    alunos.codigo = alunos.codigo + 1
+    alunos.nome = nome
+    alunos.idade = idade
+    alunos.peso = peso
+    alunos.altura = altura
+
     return render(request, 'cadastrar_aluno.html')
 
 def consultarAluno(request):
@@ -31,9 +39,19 @@ def consultarAluno(request):
     return render(request, 'consultar_aluno.html', dados)
 
 def consultarDados(request):
+
     return render(request, 'consultar_dados.html')
 
-def cadastrarRenda(request):
+def cadastrarRenda(request, valor):
+    rendas = Renda.objects
+    alunos = Aluno.objects
+
+    if rendas.codigo == alunos.codigo:
+        rendas.valor_renda = valor
+        rendas.save()
+    else:
+        print("ID renda e ID aluno não são conrrespondentes")
+
     return render(request, 'cadastrar_renda.html')
 
 def consultarRenda(request):
