@@ -19,7 +19,7 @@ def sobre(request):
 def menu(request):
     return render(request, 'menu.html')
 
-def cadastrarAluno(request, nome, idade, peso, altura):
+def cadastrarAluno(request):
     alunos = Aluno.objects
 
     if request.method == "GET":
@@ -57,17 +57,18 @@ def consultarDados(request):
 
     return render(request, 'consultar_dados.html')
 
-def cadastrarRenda(request, valor):
+def cadastrarRenda(request):
     rendas = Renda.objects
-    alunos = Aluno.objects
 
-    if rendas.codigo == alunos.codigo:
-        rendas.valor_renda = valor
-        rendas.save()
+    if request.method == "GET":
+        return render(request, 'cadastrar_renda.html')
     else:
-        print("ID renda e ID aluno não são conrrespondentes")
-
-    return render(request, 'cadastrar_renda.html')
+        nome = request.POST.get('nome')
+        valor = request.POST.get('valor')
+        
+        rendas.nome = nome
+        rendas.valor = valor
+        rendas.save()
 
 def consultarRenda(request):
     rendas = Renda.objects.all()
