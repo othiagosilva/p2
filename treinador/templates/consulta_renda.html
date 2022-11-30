@@ -29,4 +29,14 @@
             {% endif %}
         </table>
     </main>
+
+    <body>
+        <ul>
+            {% for renda in rendas %}
+                <li>
+                    {{ renda.nome }} - {{ renda.valor }}
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
 {% endblock %}

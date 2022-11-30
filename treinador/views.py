@@ -6,8 +6,9 @@ from rest_framework import status
 from treinador.serializers import RendaSerializer
 from rest_framework.decorators import api_view
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django
+from .models import Aluno, Renda
 
 def index(request):
     return render(request, 'index.html')
@@ -69,11 +70,7 @@ def cadastrarAluno(request):
 def consultarAluno(request):
     alunos = Aluno.objects.all()
 
-    dados = {
-        'alunos' : alunos
-    }
-
-    return render(request, 'consultar_aluno.html', dados)
+    return render(request, "consultar_aluno.html", {"alunos":alunos}) # para conseguir acessar lá no html
 
 def consultarDados(request):
 
@@ -95,11 +92,7 @@ def cadastrarRenda(request):
 def consultarRenda(request):
     rendas = Renda.objects.all()
 
-    dados = {
-     'rendas' : rendas
-    }
-
-    return render(request, 'consulta_renda.html', dados)
+    return render(request, "consultar_renda.html", {"rendas":rendas})
 
 @api_view(['GET', 'POST', 'DELETE'])
 def renda_list(request):
