@@ -6,7 +6,7 @@
     </header>
     
     <main>
-        <form>
+        <form action="{% url 'login' %}" method="POST"> {% csrf_token %}
             <label for="email">Email</label>
             <input type="text" id="email" name="'email"><br><br>
             <label for="senha">Senha</label>

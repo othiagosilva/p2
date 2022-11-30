@@ -11,4 +11,5 @@ urlpatterns = [
     path('consultar_dados/', views.consultarDados, name='consultar_dados'),
     path('cadastrar_renda/', views.cadastrarRenda, name='cadastrar_renda'),
     path('consulta_renda/', views.consultarRenda, name='consultar_renda'),
+    path('plataforma/', views.plataforma, name='plataforma')
 ]

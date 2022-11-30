@@ -6,6 +6,8 @@ from rest_framework import status
 from treinador.serializers import RendaSerializer
 from rest_framework.decorators import api_view
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+from django.contrib.auth import login as login_django
 
 def index(request):
     return render(request, 'index.html')
@@ -18,6 +20,26 @@ def sobre(request):
     
 def menu(request):
     return render(request, 'menu.html')
+
+def login(request):
+    if request.method == "GET":
+        return render(request, 'login.html')
+    else:
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+
+        user = authenticate(email=email, password=senha) # faz a autenticação
+
+        if user:
+            login_django(request, user)
+            return HttpResponse('Autenticado')
+        else:
+            return HttpResponse('Email ou senha inválidos')
+
+def plataforma(request):
+    if request.user.is_authenticated:
+        return HttpResponse('Você precisa estar logado')
+    return HttpResponse('Você precisa estar logado')
 
 def cadastrarAluno(request):
     alunos = Aluno.objects
