@@ -38,7 +38,7 @@ def login(request):
 
 def plataforma(request):
     if request.user.is_authenticated:
-        return HttpResponse('Você precisa estar logado')
+        return HttpResponse('Plataforma')
     return HttpResponse('Você precisa estar logado')
 
 def cadastrarAluno(request):
