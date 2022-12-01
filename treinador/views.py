@@ -55,10 +55,10 @@ def cadastrarAluno(request):
         peso = request.POST.get('peso')
         altura = request.POST.get('altura')
 
-        user = User.objects.filter(username=nome).first # trás todos os usuários que tiverem o mesmo nome
+        # user = User.objects.filter(username=nome).first # trás todos os usuários que tiverem o mesmo nome
 
-        if user:
-            return HttpResponse('Já existe um usuário com esse nome')
+        # if user:
+        #     return HttpResponse('Já existe um usuário com esse nome')
         
         alunos.nome = nome
         alunos.idade = idade
@@ -70,20 +70,51 @@ def cadastrarAluno(request):
         return HttpResponse('Usuário cadastrado com sucesso')
 
 def consultarAluno(request):
-    alunos = Renda.objects.all()
+    alunos = Aluno.objects.all()
 
     return render(request, "consultar_aluno.html", {"alunos":alunos}) # para conseguir acessar lá no html
 
 def alterarAluno(request):
+    alunos = Aluno.objects
 
-    return render(request, 'alterar_aluno.html')
+    if request.method == "GET":
+        return render(request, 'alterar_aluno.html')
+    else:
+        if alunos.id == Aluno.objects.get('id'):
+
+            nome = request.POST.get('nome')
+            idade = request.POST.get('idade')
+            peso = request.POST.get('peso')
+            altura = request.POST.get('altura')
+
+            alunos.nome = nome
+            alunos.idade = idade
+            alunos.peso = peso
+            alunos.altura = altura
+            alunos.save()
+
+            return HttpResponse('Usuário alterado com sucesso')
 
 def consultarDados(request):
 
     return render(request, 'consultar_dados.html')
 
 def alterarRenda(request):
+    renda = Renda.objects
 
+    if request.method == "GET":
+        return render(request, 'alterar_aluno.html')
+    else:
+        if renda.id == Renda.objects.get('id'):
+
+            nome = request.POST.get('nome')
+            valor = request.POST.get('valor')
+
+            renda.nome_renda = nome
+            renda.valor_renda = valor
+            renda.save()
+
+            return HttpResponse('Usuário alterado com sucesso')
     return render(request, 'alterar_renda.html')
 
 @api_view(['GET', 'POST'])
