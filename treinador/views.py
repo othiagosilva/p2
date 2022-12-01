@@ -3,12 +3,14 @@ from .models import *
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
+from rest_framework.response import  Response
 from treinador.serializers import RendaSerializer
 from rest_framework.decorators import api_view
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django
 from .models import Aluno, Renda
+import psycopg2 as pg
 
 def index(request):
     return render(request, 'index.html')
@@ -76,18 +78,17 @@ def consultarDados(request):
 
     return render(request, 'consultar_dados.html')
 
+@api_view(['GET', 'POST'])
 def cadastrarRenda(request):
-    rendas = Renda.objects
 
     if request.method == "GET":
         return render(request, 'cadastrar_renda.html')
     else:
-        nome = request.POST.get('nome')
-        valor = request.POST.get('valor')
+        nome_renda = request.POST.get('nome_renda')
+        valor_renda = request.POST.get('valor_renda')
         
-        rendas.nome = nome
-        rendas.valor = valor
-        rendas.save()
+        rendas = Renda.objects.get_or_create(nome_renda=nome_renda, valor_renda=valor_renda)
+        return Response(rendas, 200)
 
 def consultarRenda(request):
     rendas = Renda.objects.all()

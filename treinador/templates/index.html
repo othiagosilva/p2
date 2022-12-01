@@ -6,7 +6,7 @@
     </header>
     
     <main>
-        <form action="{% url 'login' %}" method="POST"> {% csrf_token %}
+        <form action="{% url 'menu' %}" method="POST"> {% csrf_token %}
             <label for="email">Email</label>
             <input type="text" id="email" name="'email"><br><br>
             <label for="senha">Senha</label>
@@ -14,11 +14,6 @@
             <input type="submit" value="Entrar">
         </form>
 
-        <a href="google.com.br"><li>Esqueci minha senha</li></a>
-
-        <button>
-            <a href="{% url 'menu' %}">Entrar</a>
-        </button>
         <button>
             <a href="{% url 'cadastro' %}">Cadastre-se</a>
         </button>

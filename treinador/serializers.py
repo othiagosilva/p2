@@ -5,7 +5,7 @@ class RendaSerializer(serializers.ModelSerializer):
  
     class MetaRenda:
         model = Renda
-        fields = ('codigo',
+        fields = (
                   'nome_renda',
                   'valor_renda',
                   )
