@@ -51,9 +51,9 @@ def cadastrarAluno(request):
         return render(request, 'cadastrar_aluno.html')
     else:
         nome = request.POST.get('nome')
-        idade = request.POST.get('nome')
-        peso = request.POST.get('nome')
-        altura = request.POST.get('nome')
+        idade = request.POST.get('idade')
+        peso = request.POST.get('peso')
+        altura = request.POST.get('altura')
 
         user = User.objects.filter(username=nome).first # trás todos os usuários que tiverem o mesmo nome
 
