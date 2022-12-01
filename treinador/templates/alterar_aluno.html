@@ -1,0 +1,64 @@
+{% extends 'base.html'%}
+{% block content%}
+    <header>
+        <h1>ALTERAR DADOS</h1>
+    </header>
+    
+    <main>
+        <form action="{% url 'cadastrar_aluno' %}" method="POST"> {% csrf_token %}
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="'nome"><br><br>
+            <label for="idade">Idade</label>
+            <input type="text" id="idade" name="'idade"><br><br>
+            <label for="peso">Peso</label>
+            <input type="text" id="peso" name="'peso"><br><br>
+            <label for="altura">Altura</label>
+            <input type="text" id="altura" name="'altura"><br><br>
+            <input type="radio" id="masculino" name="masculino" value="masculino">
+            <label for="masculino">Masculino</label>
+            <input type="radio" id="feminino" name="feminino" value="feminino">
+            <label for="feminino">Feminino</label><br><br>
+            <label for="cintura">Cintura</label>
+            <input type="text" id="cintura" name="'cintura"><br><br>
+            <label for="quadril">Quadril</label>
+            <input type="text" id="quadril" name="'quadril"><br><br>
+            <label for="abdomen">Abdômen</label>
+            <input type="text" id="abdomen" name="'abdomen"><br><br>
+            <p>DOBRA CUTÂNEAS</p><br>
+            <label for="subescapular">Subescapular</label>
+            <input type="text" id="subescapular" name="'subescapular"><br><br>
+            <label for="tricipital">Tricipital</label>
+            <input type="text" id="tricipital" name="'tricipital"><br><br>
+            <label for="Peitoral">Peitoral</label>
+            <input type="text" id="Peitoral" name="'Peitoral"><br><br>
+            <label for="axiliarmedio">Axiliar Médio</label>
+            <input type="text" id="axiliarmedio" name="'axiliarmedio"><br><br>
+            <label for="suprailiaca">Supra Ilíaca</label>
+            <input type="text" id="suprailiaca" name="'suprailiaca"><br><br>
+            <label for="abdomen">Abdomên</label>
+            <input type="text" id="abdomen" name="'abdomen"><br><br>
+            <label for="coxa">Coxa</label>
+            <input type="text" id="coxa" name="'coxa"><br><br>
+            <p>PERIMETRIA</p><br>
+            <label for="torax">Tórax</label>
+            <input type="text" id="torax" name="'torax"><br><br>
+            <label for="bracosrelaxados">Braços Relaxados</label>
+            <input type="text" id="bracosrelaxados" name="'bracosrelaxados"><br><br>
+            <label for="bracoscontraidos">Braços Contraídos</label>
+            <input type="text" id="bracoscontraidos" name="'bracoscontraidos"><br><br>
+            <label for="antebraco">Antebraços</label>
+            <input type="text" id="antebraco" name="'antebraco"><br><br>
+            <label for="cintura">Cintura</label>
+            <input type="text" id="cintura" name="'cintura"><br><br>
+            <label for="abdomen">Abdomên</label>
+            <input type="text" id="abdomen" name="'abdomen"><br><br>
+            <label for="coxa">Coxa</label>
+            <input type="text" id="coxa" name="'coxa"><br><br>
+            <label for="quadril">Quadril</label>
+            <input type="text" id="quadril" name="'quadril"><br><br>
+            <label for="panturrilha">Panturrilha</label>
+            <input type="text" id="panturrilha" name="'panturrilha"><br><br>
+            <input type="submit" value="Cadastrar">
+        </form>
+    </main>
+{% endblock %}

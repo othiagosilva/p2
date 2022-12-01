@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block content%}
+    <header>
+        <h1>ALTERAR RENDA</h1>
+    </header>
+    
+    <main>
+        <form action="{% url 'alterar_renda' %}" method="POST"> {% csrf_token %}
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="'nome"><br><br>
+            <label for="valor">Valor</label>
+            <input type="text" id="valor" name="'valor"><br><br>
+            <input type="submit" value="Enviar">
+        </form>
+    </main>
+{% endblock %}

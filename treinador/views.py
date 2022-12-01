@@ -70,13 +70,21 @@ def cadastrarAluno(request):
         return HttpResponse('Usuário cadastrado com sucesso')
 
 def consultarAluno(request):
-    alunos = Aluno.objects.all()
+    alunos = Renda.objects.all()
 
     return render(request, "consultar_aluno.html", {"alunos":alunos}) # para conseguir acessar lá no html
+
+def alterarAluno(request):
+
+    return render(request, 'alterar_aluno.html')
 
 def consultarDados(request):
 
     return render(request, 'consultar_dados.html')
+
+def alterarRenda(request):
+
+    return render(request, 'alterar_renda.html')
 
 @api_view(['GET', 'POST'])
 def cadastrarRenda(request):

@@ -15,29 +15,20 @@
                    <td></td>
                 </tr>
             </thead>
-            {% if alunos %}
-            {% for aluno in alunos %}
+            <!-- {% if alunos %}
+            {% for aluno in alunos %} -->
             <tbody>
                 <tr>
-                    <td> {{aluno.nome}} </td>
-                    <td>{{aluno.codigo}}</td>
-                    <button><a href="{% url 'consultar_dados' %}">consultar</a></button>
-                    <td><button><a href="">alterar</a></button></td>
-                    <td><button><a href="">excluir</a></button></td>
+                    <td> teste </td>
+                    <td>1</td>
+                    <td><a href="{% url 'consultar_dados' %}">consultar</a></td>
+                    <td><a href="{% url 'alterar_aluno' %}">alterar</a></td>
+                    <td><a href="">excluir</a></td>
                 </tr>
             </tbody>
-            {% endfor %}
-            {% endif %}
+            <!-- {% endfor %}
+            {% else %}
+            {% endif %} -->
         </table>
     </main>
-
-    <body>
-        <ul>
-            {% for aluno in alunos %} 
-                <li>
-                    {{ aluno.codigo }} - {{ aluno.nome }}
-                </li>
-            {% endfor %}
-        </ul>
-    </body>
 {% endblock %}
