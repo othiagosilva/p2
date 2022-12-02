@@ -5,13 +5,13 @@
     </header>
     
     <main>
-        <table>
+        <table class="table">
             <thead>
                 <tr>
-                   <td>Nome</td>
-                   <td>Valor</td>
-                   <td></td>
-                   <td></td>
+                   <th scope="column">Nome</th>
+                   <th scope="column">Valor</th>
+                   <th scope="column"></th>
+                   <th scope="column"></th>
                 </tr>
             </thead>
             {% if rendas %}
@@ -20,8 +20,8 @@
                 <tr>
                     <td>{{renda.nome_renda}}</td>
                     <td>{{renda.valor_renda}}</td>
-                    <td><a href="{% url 'alterar_renda' %}">editar</a></td>
-                    <td>excluir</td>
+                    <td><button class="btn btn-primary"><a href="{% url 'alterar_renda' %}" class="text-white text-decoration-none">editar</a></button></td>
+                    <td><button class="btn btn-danger">excluir</button></td>
                 </tr>
             </tbody>
             {% endfor %}

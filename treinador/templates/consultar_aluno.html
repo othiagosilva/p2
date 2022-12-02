@@ -5,25 +5,25 @@
     </header>
     
     <main>
-        <table>
+        <table class="table" >
             <thead>
                 <tr>
-                   <td>Nome</td>
-                   <td>Código</td>
-                   <td></td>
-                   <td></td>
-                   <td></td>
+                   <th scope="col">Nome</th >
+                   <th scope="col">Código</th >
+                   <th scope="col"></th >
+                   <th scope="col"></th >
+                   <th scope="col"></th >
                 </tr>
             </thead>
             <!-- {% if alunos %}
             {% for aluno in alunos %} -->
             <tbody>
                 <tr>
+                    <th scope="row">1</th>
                     <td> teste </td>
-                    <td>1</td>
-                    <td><a href="{% url 'consultar_dados' %}">consultar</a></td>
-                    <td><a href="{% url 'alterar_aluno' %}">alterar</a></td>
-                    <td><a href="">excluir</a></td>
+                    <td><button class="btn btn-primary"><a href="{% url 'consultar_dados' %}" class="text-white text-decoration-none">consultar</a></button></td>
+                    <td><button class="btn btn-primary"><a href="{% url 'alterar_aluno' %}" class="text-white text-decoration-none">alterar</a></button></td>
+                    <td><button class="btn btn-primary"></button><a href="">excluir</a></button></td>
                 </tr>
             </tbody>
             <!-- {% endfor %}

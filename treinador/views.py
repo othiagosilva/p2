@@ -123,11 +123,16 @@ def cadastrarRenda(request):
     if request.method == "GET":
         return render(request, 'cadastrar_renda.html')
     else:
-        nome_renda = request.POST.get('nome_renda')
-        valor_renda = request.POST.get('valor_renda')
-        
-        rendas = Renda.objects.get_or_create(nome_renda=nome_renda, valor_renda=valor_renda)
-        return Response(rendas, 200)
+        dados = {
+            'nome_renda': request.POST.get('nome_renda'),
+            'valor_renda': request.POST.get('valor_renda')
+        }
+
+        rendas_serializer = RendaSerializer(data=dados)
+        if rendas_serializer.is_valid(raise_exception=True):
+            rendas_serializer.save()
+            return Response(rendas_serializer.data, status=status.HTTP_201_CREATED) 
+        return Response(rendas_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def consultarRenda(request):
     rendas = Renda.objects.all()

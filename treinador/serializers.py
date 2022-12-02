@@ -3,9 +3,8 @@ from treinador.models import *
 
 class RendaSerializer(serializers.ModelSerializer):
  
-    class MetaRenda:
+    class Meta:
         model = Renda
-        fields = (
-                  'nome_renda',
+        fields = ['nome_renda',
                   'valor_renda',
-                  )
+                ]

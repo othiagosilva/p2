@@ -4,10 +4,10 @@
         <div class="position-absolute top-0 start-50 translate-middle-x">
             <h1>CADASTRAR RENDA</h1>
             <form action="{% url 'cadastrar_renda' %}" method="POST"> {% csrf_token %}
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="'nome"><br><br>
-                <label for="valor">Valor</label>
-                <input type="text" id="valor" name="'valor"><br><br>
+                <label for="nome_renda">Nome</label>
+                <input type="text" id="nome_renda" name="nome_renda"><br><br>
+                <label for="valor_renda">Valor</label>
+                <input type="text" id="valor_renda" name="valor_renda"><br><br>
                 <input type="submit" value="Cadastrar" class="btn btn-primary">
             </form>
         </div>
