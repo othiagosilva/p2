@@ -1,15 +1,15 @@
 {% extends 'base.html'%}
 {% block content%}
-    <header>
-        <h1>MENU</h1>
-    </header>
-    
+    <h1 class="position-absolute top-0 start-50 translate-middle-x">MENU</h1>
     <main>
-        <ul>
-            <a href="{% url 'cadastrar_aluno' %}"><li>Cadastrar Alunos</li></a>
-            <a href="{% url 'consultar_aluno'%}"><li>Consultar Alunos</li></a>
-            <a href="{% url 'cadastrar_renda' %}"><li>Cadastrar Renda</li></a>
-            <a href="{% url 'consultar_renda' %}"><li>Consultar Renda</li></a>
-        </ul>
+        <div class="position-absolute top-50 start-50 translate-middle">
+            
+            <ul>
+                <a href="{% url 'cadastrar_aluno' %}" class="d-block m-3 btn btn-primary text-white text-decoration-none"><li>Cadastrar Alunos</li></a>
+                <a href="{% url 'consultar_aluno'%}" class="d-block m-3 btn btn-primary text-white text-decoration-none"><li>Consultar Alunos</li></a>
+                <a href="{% url 'cadastrar_renda' %}" class="d-block m-3 btn btn-primary text-white text-decoration-none"><li>Cadastrar Renda</li></a>
+                <a href="{% url 'consultar_renda' %}" class="d-block m-3 btn btn-primary text-white text-decoration-none"><li>Consultar Renda</li></a>
+            </ul>
+        </div>
     </main>
 {% endblock %}

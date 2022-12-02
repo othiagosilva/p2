@@ -1,22 +1,21 @@
 {% extends 'base.html'%}
 {% block content%}
-    <header>
-        <h1>CADASTRO</h1>
-    </header>
-    
     <main>
-        <form>
-            <label for="email">Email</label>
-            <input type="text" id="email" name="'email"><br><br>
-            <label for="usuario">Usuário</label>
-            <input type="text" id="usuario" name="'usuario"><br><br>
-            <label for="senha">Senha</label>
-            <input type="text" id="senha" name="'senha"><br><br>
-            <input type="radio" id="treinador" name="treinador" value="treinador">
-            <label for="treinador">Treinador</label>
-            <input type="radio" id="aluno" name="aluno" value="aluno">
-            <label for="aluno">Aluno</label><br><br>
-            <input type="submit" value="Cadastrar">
-        </form>
+        <div class="position-absolute top-0 start-50 translate-middle-x">
+            <h1>CADASTRO</h1>
+            <form>
+                <label for="email">Email</label>
+                <input type="text" id="email" name="'email"><br><br>
+                <label for="usuario">Usuário</label>
+                <input type="text" id="usuario" name="'usuario"><br><br>
+                <label for="senha">Senha</label>
+                <input type="text" id="senha" name="'senha"><br><br>
+                <input type="radio" id="treinador" name="treinador" value="treinador">
+                <label for="treinador">Treinador</label>
+                <input type="radio" id="aluno" name="aluno" value="aluno">
+                <label for="aluno">Aluno</label><br><br>
+                <input type="submit" value="Cadastrar" class="btn btn-primary">
+            </form>
+        </div>
     </main>
 {% endblock %}

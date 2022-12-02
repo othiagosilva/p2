@@ -1,24 +1,22 @@
 {% extends 'base.html'%}
 {% block content%}
-    <header>
-        <h1>myTrainer</h1>
-        <h2>LOGIN</h2>
-    </header>
-    
     <main>
-        <form action="{% url 'menu' %}" method="POST"> {% csrf_token %}
-            <label for="email">Email</label>
-            <input type="text" id="email" name="'email"><br><br>
-            <label for="senha">Senha</label>
-            <input type="text" id="senha" name="'senha"><br><br>
-            <input type="submit" value="Entrar">
-        </form>
-
-        <button>
-            <a href="{% url 'cadastro' %}">Cadastre-se</a>
-        </button>
-        <button>
-            <a href="{% url 'sobre' %}">Sobre</a>
-        </button>
+        <div class="position-absolute top-0 start-50 translate-middle-x">
+            <h1>myTrainer</h1>
+            <h2>LOGIN</h2>
+            <form action="{% url 'menu' %}" method="POST"> {% csrf_token %}
+                <label for="email">Email</label>
+                <input type="text" id="email" name="'email"><br><br>
+                <label for="senha">Senha</label>
+                <input type="text" id="senha" name="'senha"><br><br>
+                <input type="submit" value="Entrar" class="btn btn-primary">
+                <button class="btn btn-primary">
+                    <a href="{% url 'cadastro' %}" class="text-white text-decoration-none">Cadastre-se</a>
+                </button>
+                <button class="btn btn-primary">
+                    <a href="{% url 'sobre' %}" class="text-white text-decoration-none">Sobre</a>
+                </button>
+            </form>
+        </div>
     </main>
 {% endblock %}

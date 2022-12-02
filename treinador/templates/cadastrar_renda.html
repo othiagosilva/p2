@@ -1,16 +1,15 @@
 {% extends 'base.html'%}
 {% block content%}
-    <header>
-        <h1>CADASTRAR RENDA</h1>
-    </header>
-    
     <main>
-        <form action="{% url 'cadastrar_renda' %}" method="POST"> {% csrf_token %}
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="'nome"><br><br>
-            <label for="valor">Valor</label>
-            <input type="text" id="valor" name="'valor"><br><br>
-            <input type="submit" value="Enviar">
-        </form>
+        <div class="position-absolute top-0 start-50 translate-middle-x">
+            <h1>CADASTRAR RENDA</h1>
+            <form action="{% url 'cadastrar_renda' %}" method="POST"> {% csrf_token %}
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="'nome"><br><br>
+                <label for="valor">Valor</label>
+                <input type="text" id="valor" name="'valor"><br><br>
+                <input type="submit" value="Cadastrar" class="btn btn-primary">
+            </form>
+        </div>
     </main>
 {% endblock %}
